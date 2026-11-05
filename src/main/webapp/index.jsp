@@ -14,7 +14,7 @@
 <body class="d-flex align-items-center justify-content-center min-vh-100 m-0">
 
     <main class="form-signin w-100 m-auto text-center">
-        <form action = "modulito.jsp">
+        <form action = "modulitoR.jsp">
 
             <h1 class="h3 mb-3 fw-normal">Bienvenido a Gymtrack</h1>
 

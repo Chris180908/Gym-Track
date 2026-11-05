@@ -16,50 +16,42 @@
 
     <!-- Sidebar -->
     <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px; height: 100vh;">
-        <!-- Cabecera del Sidebar con el logo B y el título -->
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <span class="fs-4">Menu</span>
+            <span class="fs-4">GYMTRACK</span>
         </a>
         <hr>
 
-        <!-- Lista de Navegación -->
+
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item mb-1">
                 <a href="#" class="nav-link active" aria-current="page">
-                    <i class="bi bi-house-door me-2"></i> Home
+                    <i class="bi bi-house-door me-2"></i> Inicio
                 </a>
             </li>
             <li class="nav-item mb-1">
                 <a href="#" class="nav-link link-body-emphasis">
-                    <i class="bi bi-speedometer2 me-2"></i> Dashboard
+                    <i class="bi bi-people"></i> Socios
                 </a>
             </li>
             <li class="nav-item mb-1">
                 <a href="#" class="nav-link link-body-emphasis">
-                    <i class="bi bi-table me-2"></i> Orders
+                    <i class="bi bi-person-vcard"></i> Membresias
                 </a>
             </li>
             <li class="nav-item mb-1">
                 <a href="#" class="nav-link link-body-emphasis">
-                    <i class="bi bi-grid me-2"></i> Products
+                    <i class="bi bi-grid me-2"></i> Reportes
                 </a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link link-body-emphasis">
-                    <i class="bi bi-person-circle me-2"></i> Customers
+                    <i class="bi bi-person"></i> Perfil
                 </a>
             </li>
         </ul>
 
         <hr>
 
-        <!-- Perfil de usuario en la parte inferior -->
-        <div class="dropdown">
-            <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle me-2">
-                <strong>mdo</strong>
-            </a>
-        </div>
     </div>
 
     <!-- Bootstrap 5 JS Bundle CDN -->
