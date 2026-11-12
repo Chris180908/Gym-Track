@@ -1,0 +1,70 @@
+/* Fondo oscuro general */
+body {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Ancho máximo del formulario como en el template oficial */
+.form-signin {
+    max-width: 330px;
+    padding: 1rem;
+}
+
+/* Color púrpura característico del logo de Bootstrap */
+.text-purple {
+    color: #7928ca;
+}
+
+/* Agrupación de inputs pegados (Top & Bottom borders) */
+.form-signin-inputs .form-floating:first-child .form-control {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin-inputs .form-floating:last-child .form-control {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: -1px;
+}
+
+/* Estilos de los inputs con toque translúcido */
+.form-control {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.07);
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    color: #fff;
+}
+
+/* Ajuste del checkbox y botón */
+.form-check-input {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.form-check-input:checked {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-login {
+    background-color: #0084ff;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-login:hover {
+    background-color: #0073e6;
+}
+
+.btn-login:active {
+    transform: scale(0.98);
+}
