@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="es" data-bs-theme="dark">
 <head>
@@ -14,7 +15,7 @@
 <body class="d-flex align-items-center justify-content-center min-vh-100 m-0">
 
     <main class="form-signin w-100 m-auto text-center">
-        <form action = "modulitoR.jsp">
+        <form action = "inicio.jsp">
 
             <h1 class="h3 mb-3 fw-normal">Bienvenido a Gymtrack</h1>
 
@@ -22,11 +23,11 @@
             <div class="form-signin-inputs">
                 <div class="form-floating">
                     <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Usuario</label>
+                    <label for="floatingInput">Correo electrónico</label>
                 </div>
                 <div class="form-floating">
                     <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Contrasena</label>
+                    <label for="floatingPassword">Contraseña</label>
                 </div>
             </div>
 

@@ -1,21 +1,15 @@
-/* Fondo oscuro general */
+
 body {
     background-color: #121212;
     color: #ffffff;
 }
 
-/* Ancho máximo del formulario como en el template oficial */
 .form-signin {
     max-width: 330px;
     padding: 1rem;
 }
 
-/* Color púrpura característico del logo de Bootstrap */
-.text-purple {
-    color: #7928ca;
-}
 
-/* Agrupación de inputs pegados (Top & Bottom borders) */
 .form-signin-inputs .form-floating:first-child .form-control {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
@@ -27,7 +21,6 @@ body {
     margin-top: -1px;
 }
 
-/* Estilos de los inputs con toque translúcido */
 .form-control {
     background-color: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -43,7 +36,6 @@ body {
     color: #fff;
 }
 
-/* Ajuste del checkbox y botón */
 .form-check-input {
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.3);
@@ -67,4 +59,13 @@ body {
 
 .btn-login:active {
     transform: scale(0.98);
+}
+
+.cuadro-panel {
+    background: rgba(30, 38, 44, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
 }
