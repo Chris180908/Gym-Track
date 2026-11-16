@@ -1,3 +1,35 @@
 spring:
   application:
-    name: demo
+    name: gymtrack
+  datasource:
+    url: jdbc:mysql://localhost:3306/GYMTRACK?useSSL=false&serverTimezone=America/Mexico_City&allowPublicKeyRetrieval=true
+    username: root
+    password: "1234"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        physical_naming_strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  # descomentar esto si las pantallas (socios.jsp, etc.) las sirve directo Spring Boot:
+  # mvc:
+  #   view:
+  #     prefix: /WEB-INF/views/
+  #     suffix: .jsp
+
+server:
+  port: 8081 # O 8080
+  forward-headers-strategy: framework
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
