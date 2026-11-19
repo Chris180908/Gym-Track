@@ -1,8 +1,3 @@
--- =============================================
--- BASE DE DATOS GYMTRACK
--- Basada en el diagrama entidad-relación
--- =============================================
-
 DROP DATABASE IF EXISTS GYMTRACK;
 
 CREATE DATABASE GYMTRACK
@@ -11,10 +6,6 @@ COLLATE utf8mb4_unicode_ci;
 
 USE GYMTRACK;
 
-
--- =============================================
--- 1. ENTIDAD RECEPCIONISTA
--- =============================================
 
 CREATE TABLE RECEPCIONISTA (
                                ID_RECEPCION INT PRIMARY KEY AUTO_INCREMENT,
@@ -27,11 +18,6 @@ CREATE TABLE RECEPCIONISTA (
                                TEL_RECEPCION VARCHAR(15),
                                CORREO_RECEPCION VARCHAR(100) UNIQUE
 );
-
-
--- =============================================
--- 2. ENTIDAD SOCIO
--- =============================================
 
 CREATE TABLE SOCIO (
                        ID_SOCIO INT PRIMARY KEY AUTO_INCREMENT,
@@ -52,10 +38,6 @@ CREATE TABLE SOCIO (
                            ON UPDATE CASCADE
 );
 
-
--- =============================================
--- 3. ENTIDAD MEMBRESIA
--- =============================================
 
 CREATE TABLE MEMBRESIA (
                            ID_MENSUALIDAD INT PRIMARY KEY AUTO_INCREMENT,
