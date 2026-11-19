@@ -59,11 +59,6 @@ CREATE TABLE MEMBRESIA (
                                CHECK (FECHA_F >= FECHA_I)
 );
 
-
--- =============================================
--- 4. ENTIDAD REPORTE
--- =============================================
-
 CREATE TABLE REPORTE (
                          ID_REPORTE INT PRIMARY KEY AUTO_INCREMENT,
                          FECHA_G DATE NOT NULL,
