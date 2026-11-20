@@ -7,12 +7,19 @@
     int asisAbr = 115;
     int asisMay = 140;
     int asisJun = 105;
+    int asisJul = 150;
+    int asisAgos = 100;
+    int asisSept = 90;
+    int asisOct = 95;
+    int asisNov = 150;
+    int asisDic = 180;
+
 
     // Convertimos a formato de arreglo para JS
-    String datosParaJS = "[" + asisEne + ", " + asisFeb + ", " + asisMar + ", " + asisAbr + ", " + asisMay + ", " + asisJun + "]";
+    String datosParaJS = "[" + asisEne + ", " + asisFeb + ", " + asisMar + ", " + asisAbr + ", " + asisMay + ", " + asisJun + ", " + asisJul + ", " + asisAgos + ", " +
+    asisSept + ", " + asisOct + ", " + asisNov + ", " + asisDic + "]";
 %>
 <!doctype html>
-<!-- Agregué el data-bs-theme="dark" para que mantenga el estilo oscuro de GymTrack -->
 <html lang="es" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
@@ -70,7 +77,7 @@
         const chart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun','Jul','Agos', 'Sept', 'Nov', 'Dic'],
                 datasets: [{
                     label: 'Asistencia',
                     data: datosGimnasio, // Aquí se usan los datos de Java

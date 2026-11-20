@@ -24,12 +24,10 @@
 <!-- Contenedor principal en fila (Sidebar a la izquierda + Contenido a la derecha) -->
 <div class="d-flex">
 
-    <!-- Sidebar -->
     <div class="no-print">
         <jsp:include page="navbar.jsp" />
     </div>
 
-    <!-- Contenido Principal -->
     <main class="flex-grow-1 p-4 contenido-principal" style="height: 100vh; overflow-y: auto;">
         <div class="container-fluid">
 
@@ -49,7 +47,7 @@
             <!-- Tarjetas de Resumen (KPIs - 3 columnas) -->
             <div class="row g-3 mb-4">
                 <div class="col-12 col-md-4">
-                    <div class="card border-secondary h-100 shadow-sm">
+                    <div class="cuadro-panel h-100 shadow-sm">
                         <div class="card-body d-flex align-items-center">
                             <div class="bg-primary bg-opacity-10 text-primary rounded-3 p-3 me-3">
                                 <i class="bi bi-people-fill fs-3"></i>
@@ -63,7 +61,7 @@
                 </div>
 
                 <div class="col-12 col-md-4">
-                    <div class="card border-secondary h-100 shadow-sm">
+                    <div class="cuadro-panel h-100 shadow-sm">
                         <div class="card-body d-flex align-items-center">
                             <div class="bg-success bg-opacity-10 text-success rounded-3 p-3 me-3">
                                 <i class="bi bi-card-checklist fs-3"></i>
@@ -77,7 +75,7 @@
                 </div>
 
                 <div class="col-12 col-md-4">
-                    <div class="card border-secondary h-100 shadow-sm">
+                    <div class="cuadro-panel h-100 shadow-sm">
                         <div class="card-body d-flex align-items-center">
                             <div class="bg-warning bg-opacity-10 text-warning rounded-3 p-3 me-3">
                                 <i class="bi bi-cash-coin fs-3"></i>
@@ -91,12 +89,11 @@
                 </div>
             </div>
 
-            <!-- Panel de Filtros y Generación de Reporte -->
-            <div class="card border-secondary mb-4 shadow-sm no-print">
+            <div class="cuadro-panel mb-4 shadow-sm no-print">
                 <div class="card-header bg-body-tertiary fw-semibold">
                     <i class="bi bi-funnel me-1"></i> Filtros de Consulta y Generación de Reporte
                 </div>
-                <div class="card-body">
+                <div class="cuadro-panel">
                     <form action="ReporteServlet" method="GET" class="row g-3 align-items-end">
                         <div class="col-md-3">
                             <label for="tipoReporte" class="form-label small text-secondary">Módulo / Tipo de Reporte</label>
@@ -127,8 +124,7 @@
                 </div>
             </div>
 
-            <!-- Pestañas de Consulta Detallada -->
-            <div class="card border-secondary shadow-sm">
+            <div class="cuadro-panel shadow-sm">
                 <div class="card-header bg-body-tertiary no-print">
                     <ul class="nav nav-tabs card-header-tabs" id="reportesTabs" role="tablist">
                         <li class="nav-item" role="presentation">
