@@ -86,3 +86,8 @@ CREATE TABLE USUARIO (
                          PASSWORD VARCHAR(255) NOT NULL,
                          ACTIVO BOOLEAN NOT NULL DEFAULT TRUE
 );
+CREATE TABLE ROL (
+                        ID_ROL BIGINT PRIMARY KEY AUTO_INCREMENT,
+                        NOMBRE VARCHAR(100),
+                        DESCRIPCION VARCHAR(100)
+);
