@@ -1,41 +1,48 @@
 package GymTrack.example.demo.controller.login;
 
+import GymTrack.example.demo.Service.RecepcionistaService;
 import GymTrack.example.demo.dto.Login;
-import GymTrack.example.demo.model.Usuario;
-import GymTrack.example.demo.Service.UsuarioService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
+import GymTrack.example.demo.model.Recepcionista;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@Tag( name = "Login", description = "Acceso al sistema")
-@RestController
-@RequestMapping("/api/access")
+@Controller
 @RequiredArgsConstructor
-public class LoginController
-{
-    private final UsuarioService usuarioService;
+public class LoginController {
 
-    @Operation(summary = "Valida credenciales", description = "valida credenciales del sistema")
-    @PostMapping
-    public ResponseEntity<Usuario> create(@RequestBody Login login)
-    {
+    private final RecepcionistaService recepcionistaService;
 
-        Usuario usuario = usuarioService.findByLogin( login );
-        if( usuario != null )
-        {
-            return ResponseEntity
-                    .status(HttpStatus.CREATED)
-                    .body(usuario);
-        }
-        return ResponseEntity
-                .status(HttpStatus.NOT_FOUND)
-                .build( );
+    @GetMapping("/index")
+    public String mostrarIndex(Model model) {
+        model.addAttribute("login", new Login());
+        return "index";
     }
 
+    @PostMapping("/login")
+    public String procesarLogin(
+            @ModelAttribute("login") Login login,
+            HttpSession session,
+            Model model) {
+
+        if (login.getUsername() == null || login.getUsername().isBlank()
+                || login.getPassword() == null || login.getPassword().isBlank()) {
+            model.addAttribute("error", "Ingresa tu correo electrónico y contraseña.");
+            return "index";
+        }
+
+        Recepcionista recepcionista = recepcionistaService.findByLogin(login);
+
+        if (recepcionista == null) {
+            model.addAttribute("error", "Correo o contraseña incorrectos.");
+            return "index";
+        }
+
+        session.setAttribute("recepcionistaLogueado", recepcionista);
+        return "redirect:/inicio.jsp";
+    }
 }

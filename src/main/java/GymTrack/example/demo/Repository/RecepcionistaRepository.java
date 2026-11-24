@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RecepcionistaRepository extends JpaRepository<Recepcionista, Long>
 {
-    @Query("SELECT r FROM Recepcionista r WHERE r.correo_recepcion = :correo")
+    @Query("SELECT r FROM Recepcionista r WHERE LOWER(r.correo_recepcion) = LOWER(:correo)")
     Recepcionista findByCorreo_recepcion(@Param("correo") String correoRecepcion);
 }

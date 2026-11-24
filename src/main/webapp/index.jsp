@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="es" data-bs-theme="dark">
 <head>
@@ -15,30 +16,29 @@
 <body class="d-flex align-items-center justify-content-center min-vh-100 m-0">
 
     <main class="form-signin w-100 m-auto text-center">
-        <form action = "inicio.jsp">
+        <form action="${pageContext.request.contextPath}/login" method="post">
 
             <h1 class="h3 mb-3 fw-normal">Bienvenido a Gymtrack</h1>
+
+            <c:if test="${not empty error}">
+                <div class="alert alert-danger py-2" role="alert">
+                    ${error}
+                </div>
+            </c:if>
 
             <!-- Floating Labels agrupados -->
             <div class="form-signin-inputs">
                 <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input type="email" class="form-control" id="floatingInput" name="username" placeholder="name@example.com" required>
                     <label for="floatingInput">Correo electrónico</label>
                 </div>
                 <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" required>
                     <label for="floatingPassword">Contraseña</label>
                 </div>
             </div>
 
-            <div class="form-check text-start my-3 ms-1">
-                <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-                <label class="form-check-label text-body-secondary fs-6" for="flexCheckDefault">
-                    Mantener iniciada la cuenta
-                </label>
-            </div>
-
-            <button class="btn btn-primary w-100 py-2 btn-login fw-semibold" type="submit"> Ingresar </button>
+            <button class="btn btn-primary w-100 py-2 btn-login fw-semibold mt-3" type="submit"> Ingresar </button>
 
         </form>
     </main>

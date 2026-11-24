@@ -53,17 +53,28 @@ public class RecepcionistaServiceImpl implements RecepcionistaService
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Recepcionista findByLogin(Login login)
     {
-        Recepcionista recepcionista = recepcionistaRepository.findByCorreo_recepcion( login.getUsername( ) );
-        if( recepcionista == null )
+        if (login == null || login.getUsername() == null || login.getPassword() == null)
         {
             return null;
         }
-        if( recepcionista.getContra_recepcion( ).equals( login.getPassword( ) ) )
+
+        String correo = login.getUsername().trim();
+        String password = login.getPassword().trim();
+
+        Recepcionista recepcionista = recepcionistaRepository.findByCorreo_recepcion(correo);
+        if (recepcionista == null)
+        {
+            return null;
+        }
+
+        if (recepcionista.getContra_recepcion() != null && recepcionista.getContra_recepcion().equals(password))
         {
             return recepcionista;
         }
+
         return null;
     }
 }
