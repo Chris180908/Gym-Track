@@ -1,0 +1,337 @@
+# GymTrack: ejemplos exclusivamente para una base local de pruebas.
+# Ejecuta cada petición por separado. Inicia sesión primero.
+# IntelliJ HTTP Client conserva las cookies automáticamente por defecto.
+# En Postman conserva JSESSIONID del login. Cambia los IDs de ejemplo antes de
+# ejecutar altas, cambios o bajas. No modifiques datos reales.
+
+@base = http://localhost:8081
+@idRol = 3
+@idUsuario = 3
+@idRecepcionista = 4
+@idSocio = 2
+@idPlan = 1
+@idPlanPrueba = 4
+@idSuscripcion = 1
+@idMembresia = 1
+@idPago = 1
+@idReporte = 1
+@idAcceso = 1
+
+### Iniciar sesión como recepcionista
+POST {{base}}/api/access
+Content-Type: application/json
+
+{
+    "username": "recepcion@demo.invalid",
+    "password": "GymDemo2026!"
+}
+
+### Roles: alta
+POST {{base}}/api/roles
+Content-Type: application/json
+
+{
+    "nombre": "ROL_PRUEBA",
+    "descripcion": "Rol de catálogo sin acceso al sistema"
+}
+
+### Roles: consulta
+GET {{base}}/api/roles
+
+### Roles: consulta individual
+GET {{base}}/api/roles/{{idRol}}
+
+### Roles: cambio (solo rol de prueba)
+PUT {{base}}/api/roles/{{idRol}}
+Content-Type: application/json
+
+{
+    "nombre": "ROL_PRUEBA",
+    "descripcion": "Descripción modificada"
+}
+
+### Roles: baja física (solo rol de prueba sin referencias)
+DELETE {{base}}/api/roles/{{idRol}}
+
+### Usuarios: alta con perfil
+POST {{base}}/api/usuarios
+Content-Type: application/json
+
+{
+    "rol": "SOCIO",
+    "datos": {
+        "username": "usuario.crud@demo.invalid",
+        "password": "GymPrueba2026!",
+        "nombre": "Usuario de prueba",
+        "correo": "usuario.crud@demo.invalid"
+    }
+}
+
+### Usuarios: consulta
+GET {{base}}/api/usuarios
+
+### Usuarios: consulta individual
+GET {{base}}/api/usuarios/{{idUsuario}}
+
+### Usuarios: cambio de credenciales y activación
+PUT {{base}}/api/usuarios/{{idUsuario}}
+Content-Type: application/json
+
+{
+    "username": "usuario.crud@demo.invalid",
+    "password": "GymNueva2026!",
+    "activo": true
+}
+
+### Usuarios: baja lógica
+DELETE {{base}}/api/usuarios/{{idUsuario}}
+
+### Recepcionistas: alta
+POST {{base}}/api/recepcionistas
+Content-Type: application/json
+
+{
+    "username": "recepcion.crud@demo.invalid",
+    "password": "GymPrueba2026!",
+    "nombre": "Recepcionista de prueba",
+    "correo": "recepcion.crud@demo.invalid"
+}
+
+### Recepcionistas: consulta
+GET {{base}}/api/recepcionistas
+
+### Recepcionistas: consulta individual
+GET {{base}}/api/recepcionistas/{{idRecepcionista}}
+
+### Recepcionistas: cambio
+PUT {{base}}/api/recepcionistas/{{idRecepcionista}}
+Content-Type: application/json
+
+{
+    "nombre": "Recepcionista modificado",
+    "correo": "recepcion.crud@demo.invalid",
+    "telefono": "5500000000",
+    "numCalle": "Calle de prueba 1",
+    "colonia": "Centro",
+    "estado": "CDMX",
+    "codigoPostal": "06000"
+}
+
+### Recepcionistas: baja lógica (no usar la cuenta de la sesión)
+DELETE {{base}}/api/recepcionistas/{{idRecepcionista}}
+
+### Socios: alta
+POST {{base}}/api/socios
+Content-Type: application/json
+
+{
+    "username": "socio.crud@demo.invalid",
+    "password": "GymPrueba2026!",
+    "nombre": "Socio de prueba",
+    "correo": "socio.crud@demo.invalid"
+}
+
+### Socios: consulta
+GET {{base}}/api/socios
+
+### Socios: consulta individual
+GET {{base}}/api/socios/{{idSocio}}
+
+### Socios: cambio
+PUT {{base}}/api/socios/{{idSocio}}
+Content-Type: application/json
+
+{
+    "nombre": "Socio modificado",
+    "correo": "socio.crud@demo.invalid",
+    "telefono": "5500000000",
+    "numCalle": "Calle de prueba 2",
+    "colonia": "Centro",
+    "estado": "CDMX",
+    "codigoPostal": "06000"
+}
+
+### Socios: baja lógica (ejecutar después de las pruebas de venta)
+DELETE {{base}}/api/socios/{{idSocio}}
+
+### Planes: alta de prueba
+POST {{base}}/api/planes
+Content-Type: application/json
+
+{
+    "nombre": "Plan de prueba",
+    "precio": 400.00,
+    "duracion_meses": 1,
+    "activo": true
+}
+
+### Planes: consulta
+GET {{base}}/api/planes
+
+### Planes: consulta individual
+GET {{base}}/api/planes/{{idPlanPrueba}}
+
+### Planes: cambio
+PUT {{base}}/api/planes/{{idPlanPrueba}}
+Content-Type: application/json
+
+{
+    "nombre": "Plan de prueba modificado",
+    "precio": 450.00,
+    "duracion_meses": 1,
+    "activo": true
+}
+
+### Planes: baja lógica
+DELETE {{base}}/api/planes/{{idPlanPrueba}}
+
+### Suscripciones: alta pendiente (sin cobro)
+POST {{base}}/api/suscripciones
+Content-Type: application/json
+
+{
+    "idSocio": {{idSocio}},
+    "idPlan": {{idPlan}}
+}
+
+### Suscripciones: consulta
+GET {{base}}/api/suscripciones
+
+### Suscripciones: consulta individual
+GET {{base}}/api/suscripciones/{{idSuscripcion}}
+
+### Suscripciones: cambio de estado local
+PUT {{base}}/api/suscripciones/{{idSuscripcion}}
+Content-Type: application/json
+
+{
+    "estatus": "SUSPENDIDA"
+}
+
+### Suscripciones: cancelación local
+DELETE {{base}}/api/suscripciones/{{idSuscripcion}}
+
+### Membresías: alta (también genera un pago de prueba)
+POST {{base}}/api/membresias
+Content-Type: application/json
+
+{
+    "idSocio": {{idSocio}},
+    "idPlan": {{idPlan}},
+    "metodoPago": "EFECTIVO"
+}
+
+### Membresías: consulta
+GET {{base}}/api/membresias
+
+### Membresías: consulta individual
+GET {{base}}/api/membresias/{{idMembresia}}
+
+### Membresías: corrección de vigencia (ajusta las fechas a tu prueba)
+PUT {{base}}/api/membresias/{{idMembresia}}
+Content-Type: application/json
+
+{
+    "fechaInicio": "2026-11-24",
+    "fechaFin": "2026-12-23",
+    "estatus": "VIGENTE"
+}
+
+### Membresías: cancelación (no reembolso)
+DELETE {{base}}/api/membresias/{{idMembresia}}
+
+### Pagos: consulta
+GET {{base}}/api/pagos
+
+### Pagos: consulta individual
+GET {{base}}/api/pagos/{{idPago}}
+
+### Pagos: alta manual solo para membresía sin pago; si ya existe, espera 409
+POST {{base}}/api/pagos
+Content-Type: application/json
+
+{
+    "idMembresia": {{idMembresia}},
+    "metodoPago": "EFECTIVO"
+}
+
+### Pagos: corrección de concepto de un pago presencial
+PUT {{base}}/api/pagos/{{idPago}}
+Content-Type: application/json
+
+{
+    "concepto": "Concepto corregido de la prueba"
+}
+
+### Reportes: alta
+POST {{base}}/api/reportes
+Content-Type: application/json
+
+{
+    "tipo": "GENERAL",
+    "fechaInicio": "2026-11-01",
+    "fechaFin": "2026-11-30"
+}
+
+### Reportes: consulta
+GET {{base}}/api/reportes
+
+### Reportes: consulta individual
+GET {{base}}/api/reportes/{{idReporte}}
+
+### Reportes: cambio
+PUT {{base}}/api/reportes/{{idReporte}}
+Content-Type: application/json
+
+{
+    "tipo": "SOCIOS",
+    "fechaInicio": "2026-11-01",
+    "fechaFin": "2026-11-30"
+}
+
+### Reportes: baja física
+DELETE {{base}}/api/reportes/{{idReporte}}
+
+### Accesos: registro de validación manual (resultado calculado en servidor)
+POST {{base}}/api/accesos
+Content-Type: application/json
+
+{
+    "idSocio": {{idSocio}}
+}
+
+### Accesos: consulta
+GET {{base}}/api/accesos
+
+### Accesos: consulta individual
+GET {{base}}/api/accesos/{{idAcceso}}
+
+### Cerrar sesión de recepción
+POST {{base}}/api/access/logout
+
+### Login de socio (debe estar activo)
+POST {{base}}/api/access
+Content-Type: application/json
+
+{
+    "username": "socio@demo.invalid",
+    "password": "GymDemo2026!"
+}
+
+### Perfil propio
+GET {{base}}/api/movil/perfil
+
+### Membresías propias
+GET {{base}}/api/movil/membresias
+
+### Pagos propios
+GET {{base}}/api/movil/pagos
+
+### Planes disponibles
+GET {{base}}/api/movil/planes
+
+### Prueba de autorización: un socio debe recibir 403
+GET {{base}}/api/usuarios
+
+### Cerrar sesión
+POST {{base}}/api/access/logout
