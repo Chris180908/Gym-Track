@@ -38,7 +38,7 @@ public class LoginController {
         Recepcionista recepcionista = recepcionistaService.findByLogin(login);
 
         if (recepcionista == null) {
-            model.addAttribute("error", "Correo o contraseña incorrectos.");
+            model.addAttribute("error", "Correo o contraseña incorrrecta ❗");
             return "index";
         }
 
