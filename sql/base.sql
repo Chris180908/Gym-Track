@@ -11,7 +11,7 @@ CREATE TABLE RECEPCIONISTA (
                                ID_RECEPCION INT PRIMARY KEY AUTO_INCREMENT,
                                NOM_RECEPCION VARCHAR(100) NOT NULL,
                                CONTRA_RECEPCION VARCHAR(255) NOT NULL,
-                               NUM_CALLE_R VARCHAR(20),
+                               NUM_CALLE_R VARCHAR(100),
                                COL_R VARCHAR(100),
                                EDO_R VARCHAR(100),
                                COD_POST_R VARCHAR(10),
@@ -87,7 +87,47 @@ CREATE TABLE USUARIO (
                          ACTIVO BOOLEAN NOT NULL DEFAULT TRUE
 );
 CREATE TABLE ROL (
-                        ID_ROL BIGINT PRIMARY KEY AUTO_INCREMENT,
-                        NOMBRE VARCHAR(100),
-                        DESCRIPCION VARCHAR(100)
+                     ID_ROL BIGINT PRIMARY KEY AUTO_INCREMENT,
+                     NOMBRE VARCHAR(100),
+                     DESCRIPCION VARCHAR(100)
 );
+INSERT INTO RECEPCIONISTA (
+    NOM_RECEPCION,
+    CONTRA_RECEPCION,
+    NUM_CALLE_R,
+    COL_R,
+    EDO_R,
+    COD_POST_R,
+    TEL_RECEPCION,
+    CORREO_RECEPCION
+) VALUES
+      (
+          'Ana Sofía Mendoza',
+          'AnaRecep2026!',
+          'Av. Insurgentes Sur 1450',
+          'Actipan',
+          'Ciudad de México',
+          '03230',
+          '5512345678',
+          'ana.mendoza@ejemplo.com'
+      ),
+      (
+          'Carlos Eduardo Ríos',
+          'Carlos12345',
+          'Calle Reforma 320',
+          'Centro',
+          'Jalisco',
+          '44100',
+          '3398765432',
+          'carlos.rios@ejemplo.com'
+      ),
+      (
+          'Mariana López Castro',
+          'Mariana_Pass99',
+          'Blvd. Díaz Ordaz 890',
+          'Santa María',
+          'Nuevo León',
+          '64650',
+          '8145678901',
+          'mariana.lopez@ejemplo.com'
+      );
