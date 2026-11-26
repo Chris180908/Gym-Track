@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#0F1217">
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="22dp"
+        android:gravity="center_vertical">
+        <ProgressBar android:id="@+id/estado_progress"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_gravity="center_horizontal" />
+        <TextView style="@style/GtTitle"
+            android:id="@+id/estado_titulo"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:layout_marginTop="12dp"
+            tools:text="Consultando GymTrack…" />
+        <TextView style="@style/GtBody"
+            android:id="@+id/estado_mensaje"
+            android:gravity="center"
+            android:layout_marginTop="12dp"
+            android:visibility="gone" />
+        <Button style="@style/GtPrimary"
+            android:id="@+id/estado_reintentar"
+            android:text="Reintentar"
+            android:layout_marginTop="20dp"
+            android:visibility="gone" />
+        <Button style="@style/GtButton"
+            android:id="@+id/estado_logout"
+            android:text="Cerrar sesión"
+            android:layout_marginTop="10dp"
+            android:visibility="gone" />
+    </LinearLayout>
+</ScrollView>

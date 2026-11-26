@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" style="@style/GtCard"
+    android:layout_marginBottom="12dp">
+    <TextView style="@style/GtTitle"
+        android:id="@+id/plan_nombre"
+        android:textSize="21sp"
+        tools:text="Mensualidad" />
+    <TextView style="@style/GtTitle"
+        android:id="@+id/plan_precio"
+        android:textSize="27sp"
+        android:textColor="#80A8FF"
+        android:layout_marginTop="8dp"
+        tools:text="$300.00 MXN" />
+    <TextView style="@style/GtBody"
+        android:id="@+id/plan_duracion"
+        android:layout_marginTop="7dp"
+        tools:text="30 días de duración" />
+</LinearLayout>

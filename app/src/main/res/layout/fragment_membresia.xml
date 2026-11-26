@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#0F1217">
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="22dp"
+        android:gravity="top">
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+            <TextView style="@style/GtTitle"
+                android:text="Mi membresía"
+                android:layout_width="0dp"
+                android:layout_weight="1" />
+            <ImageButton android:id="@+id/btn_refresh"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_refresh"
+                android:tint="#9AA7B8"
+                android:contentDescription="Actualizar" />
+        </LinearLayout>
+        <LinearLayout style="@style/GtCard">
+            <TextView style="@style/GtPill"
+                android:id="@+id/membresia_estado"
+                tools:text="Vigente" />
+            <TextView style="@style/GtTitle"
+                android:id="@+id/membresia_plan"
+                android:gravity="center"
+                android:textSize="22sp"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="9dp"
+                tools:text="Mensualidad" />
+            <LinearLayout android:id="@+id/membresia_detalles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView style="@style/GtBody"
+                    android:id="@+id/membresia_inicio"
+                    android:gravity="center"
+                    tools:text="Inicio: 18 de noviembre de 2026" />
+                <TextView style="@style/GtBody"
+                    android:id="@+id/membresia_fin"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    tools:text="Vencimiento: 18 de diciembre de 2026" />
+                <View style="@style/GtDivider" />
+                <TextView style="@style/GtLabel"
+                    android:text="Precio pagado" />
+                <TextView style="@style/GtValue"
+                    android:id="@+id/membresia_precio"
+                    tools:text="$300.00 MXN" />
+            </LinearLayout>
+            <TextView style="@style/GtTitle"
+                android:id="@+id/membresia_dias"
+                android:gravity="center"
+                android:textColor="#32D7A3"
+                android:layout_marginTop="18dp"
+                tools:text="28 días restantes" />
+            <TextView style="@style/GtBody"
+                android:id="@+id/membresia_aviso"
+                android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:visibility="gone"
+                tools:text="Consulta los planes disponibles." />
+            <TextView style="@style/GtBody"
+                android:id="@+id/membresia_inactiva"
+                android:text="Tu cuenta está inactiva. Consulta en recepción."
+                android:textColor="#F5C36A"
+                android:layout_marginTop="12dp"
+                android:visibility="gone" />
+        </LinearLayout>
+        <Button style="@style/GtPrimary"
+            android:id="@+id/btn_explorar"
+            android:text="Explorar planes"
+            android:layout_marginTop="18dp" />
+        <TextView style="@style/GtBody"
+            android:text="Las contrataciones y renovaciones se realizan en recepción."
+            android:gravity="center"
+            android:layout_marginTop="15dp" />
+    </LinearLayout>
+</ScrollView>
