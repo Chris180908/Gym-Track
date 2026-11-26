@@ -1,0 +1,7 @@
+-- Para una base existente con las siete tablas y roles de base.sql. No elimina datos.
+USE GYMTRACK;
+INSERT INTO ROL (NOMBRE, DESCRIPCION)
+SELECT 'ADMIN', 'Administrador general' WHERE NOT EXISTS (SELECT 1 FROM ROL WHERE NOMBRE = 'ADMIN');
+INSERT INTO RECEPCIONISTA (NOM_RECEPCION, CONTRA_RECEPCION, CORREO_RECEPCION, ID_ROL)
+SELECT 'Administrador GymTrack', 'AdminGym2026!', 'admin@gymtrack.com', ID_ROL FROM ROL
+WHERE NOMBRE = 'ADMIN' AND NOT EXISTS (SELECT 1 FROM RECEPCIONISTA WHERE CORREO_RECEPCION = 'admin@gymtrack.com');
